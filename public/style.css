@@ -1,9 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html {
@@ -20,18 +28,33 @@ body {
 
 #root {
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 .header {
     min-height: 3.8rem;
     margin: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .title {
@@ -41,6 +64,8 @@ body {
 }
 
 .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 30rem;
     height: 2.2rem;
@@ -53,7 +78,9 @@ body {
     outline: none;
     font-size: 1rem;
     font-weight: 300;
-    flex: 9;
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
     height: 100%;
     padding-left: 1rem;
 }
@@ -68,7 +95,9 @@ body {
     padding: none;
     margin: none;
     outline: none;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     height: 100%;
     cursor: pointer;
 }
@@ -81,8 +110,12 @@ body {
 }
 
 .list-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border-bottom: 2px solid #d2d2d2;
     border-radius: 5px;
     margin: 0;
@@ -99,7 +132,9 @@ body {
 }
 
 .item-text {
-    flex: 9;
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
     font-weight: 300;
     padding: 0 0 0 1rem;
 }
@@ -110,10 +145,18 @@ body {
 }
 
 .btn-container {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 100%;
 }
 
@@ -131,13 +174,21 @@ ion-icon {
     margin-top: 0.5rem;
     width: 30rem;
     height: 2.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .item-cnt {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     color: #a2a2a2;
     font-size: 0.7rem;
     font-weight: 300;
@@ -145,10 +196,18 @@ ion-icon {
 }
 
 .btns-container {
-    flex: 5;
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 2.2rem;
 }
 
@@ -173,5 +232,12 @@ ion-icon {
 }
 
 .del-completed-btn {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+
+.btns-container .btn-active {
+    background-color: #a2a2a2;
+    color: #fff;
 }

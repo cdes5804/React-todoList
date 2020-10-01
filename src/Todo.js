@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import TodoItem from './TodoItem'
 import TodoStat from './TodoStat'
 
@@ -7,6 +7,18 @@ function Todo() {
     const [item, setItem] = useState('');
     const [items, setItems] = useState([]);
     const [mode, setMode] = useState('all');
+
+    useEffect(() => {
+        const storedItems = localStorage.getItem('Items');
+        if (storedItems !== null) {
+            setItems(JSON.parse(storedItems));
+        }
+    }, []);
+
+    useEffect(() => {
+        const itemsString = JSON.stringify(items);
+        localStorage.setItem('Items', itemsString);
+    }, [items])
 
     let getRandomId = () => Math.random()
 
@@ -19,7 +31,7 @@ function Todo() {
             text: item,
             completed: false
         }
-        setItems(prevItems => [...prevItems, newItem])
+        setItems(prevItems => [...prevItems, newItem]);
         setItem('');
     }
 
@@ -48,8 +60,15 @@ function Todo() {
         setMode(e.target.name);
     }
 
-    let delComplete = () => {
-        const newItems = items.filter(x => x.completed === false);
+    let delCurrent = () => {
+        console.log('here');
+        let newItems;
+        if (mode === 'all')
+            newItems = [];
+        else if (mode === 'completed')
+            newItems = items.filter(x => x.completed === false);
+        else if (mode === 'active')
+            newItems = items.filter(x => x.completed);
         setItems(newItems);
     }
 
@@ -67,7 +86,7 @@ function Todo() {
                 <button className="add-btn">Add</button>
             </form>
             <TodoItem items={items} toggleComplete={toggleComplete} delItem={delItem} mode={mode}/>
-            <TodoStat items={items} changeMode={changeMode} delComplete={delComplete}/>
+            <TodoStat items={items} changeMode={changeMode} delCurrent={delCurrent} mode={mode}/>
         </Fragment>
     );
 }
